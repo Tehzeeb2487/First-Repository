@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Calculator</title>
+		<link rel="stylesheet" href="calculator.css">
+	</head>
+	<body>
+		<div class="calculator">
+			<input type="text" name="" id="inn" class="forin" placeholder="0" readonly>
+			<div class="btn">
+				<button class="bt1 ac operator" onclick="clearDisplay()">AC</button>
+				<button class="bt1 del operator" onclick="clearOne()">DEL</button>
+				<button class="bt1 operator" onclick="showOnDisplay('%')">%</button>
+				<button class="bt1 operator" onclick="showOnDisplay('+')">+</button>
+				<button class="bt1" onclick="showOnDisplay('1')">1</button>
+				<button class="bt1" onclick="showOnDisplay('2')">2</button>
+				<button class="bt1" onclick="showOnDisplay('3')">3</button>
+				<button class="bt1 operator" onclick="showOnDisplay('-')">-</button>
+				<button class="bt1" onclick="showOnDisplay('4')">4</button>
+				<button class="bt1" onclick="showOnDisplay('5')">5</button>
+				<button class="bt1" onclick="showOnDisplay('6')">6</button>
+				<button class="bt1 operator" onclick="showOnDisplay('*')">&times;</button>
+				<button class="bt1" onclick="showOnDisplay('7')">7</button>
+				<button class="bt1" onclick="showOnDisplay('8')">8</button>
+				<button class="bt1" onclick="showOnDisplay('9')">9</button>
+				<button class="bt1 operator" onclick="showOnDisplay('/')">/</button>
+				<button class="bt1" onclick="showOnDisplay('00')">00</button>
+				<button class="bt1" onclick="showOnDisplay('0')">0</button>
+				<button class="bt1" onclick="showOnDisplay('.')">.</button>
+				<button class="bt1 operator equal" onclick="calculate()">=</button>
+			</div>
+		</div>
+		<script>
+			let input = document.getElementById('inn');
+			function showOnDisplay(values) {
+				input.value += values;	
+			}
+			function clearDisplay() {
+				input.value = '';
+			}
+			function clearOne() {
+				var strin = String(input.value)
+				input.value= strin.slice(0,-1);
+			}
+			function calculate() {
+				try{
+					input.value = eval(input.value);
+				}
+				catch{
+					input.value = 'Error';
+				}
+			}
+		</script>
+	</body>
+</html>
